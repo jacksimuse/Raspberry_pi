@@ -74,6 +74,7 @@ def sound():
 @app.route('/sonic', methods = ['POST'])
 def sonic():
         count = 0
+	res = []
         while count != 10:
                 time.sleep(0.2)
                 GPIO.output(triggerPin, GPIO.LOW)
@@ -87,10 +88,13 @@ def sonic():
 
                 rtTotime = stop - start
                 distance = rtTotime * 34000 / 2
+		distance = round(distance, 2)
+ 		res.append(distance)
                 print("distance : %.2f cm" % distance)
 
                 count = count + 1
- return home()
+ return render_template("allpack.html", data=res)
+
 
 if __name__ == '__main__':
         app.run(host = '0.0.0.0', port='8080')
@@ -122,6 +126,11 @@ if __name__ == '__main__':
                 <p> 버튼 on 누르면 초음파 탐지 </p><br/>
                 <input type="submit" name="sonic" value="on"/>
         </form>
+ 		<h3> 초음파 탐지 값  </h3>
+                {% for i in data %}
+                        {{i}} cm </br>
+                {% endfor %}
+
 </body>
 </html>
 ```
