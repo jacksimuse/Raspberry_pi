@@ -8,11 +8,11 @@ class Person(object):
     def getAgte(self):
         return self.age
 
-class Man(Person):
+class Man(Person): # 클래스 상속
     gender = 'male'
 
 class Korean(Person):
     nationality = 'korea'
 
-class KoreanMan(Man, Korean):
+class KoreanMan(Man, Korean):   # 다중상속
     pass
