@@ -10,3 +10,6 @@ print(p.age)
 print(p.name)
 print(p.getAgte())
 print(p.total)
+
+john = Person.Person("John Doe", 36)
+print(john.name)
