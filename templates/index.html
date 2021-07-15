@@ -12,10 +12,15 @@
     <h1>Node.js 제목</h1>    
     <h3>부제목</h3>
     <p>Node.js 테스트용 페이지입니다.</p>
-    <p>
-        유저아이디 : {{data.userid}}
-        성별 : {{data.gender}}
-        나이 : {{data.age}}
-    </p>
+    <!-- <p>
+        유저아이디 : {#data.userid#}
+        성별 : {#data.gender#}
+        나이 : {#data.age#}
+    </p> -->
+
+    <form action="/get" method="GET">
+        <input type="text" name="user"/>
+        <input type="submit" name="전송"/>
+    </form>
 </body>
 </html>
